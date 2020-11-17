@@ -1,0 +1,14 @@
+name: Ruby
+
+on: [push,pull_request]
+
+jobs:
+  build:
+    runs-on: rubylang/ruby:master-nightly-bionic
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run the default task
+      run: |
+        gem install bundler -v 2.2.0.rc.2
+        bundle install
+        bundle exec rake
