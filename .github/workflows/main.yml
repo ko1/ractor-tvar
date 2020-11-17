@@ -1,14 +1,20 @@
-name: Ruby
-
+name: Development
 on: [push,pull_request]
-
 jobs:
-  build:
-    runs-on: rubylang/ruby:master-nightly-bionic
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu]
+        ruby: [head, debug]
+
+    runs-on: ${{ matrix.os }}-latest
+    continue-on-error: ${{ matrix.ruby == 'head' || matrix.ruby == 'debug' }}
     steps:
     - uses: actions/checkout@v2
-    - name: Run the default task
-      run: |
-        gem install bundler -v 2.2.0.rc.2
-        bundle install
-        bundle exec rake
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - run: bundle install
+    - run: bundle exec rake
