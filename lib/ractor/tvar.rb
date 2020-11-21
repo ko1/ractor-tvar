@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "ractor/tvar/version"
-require 'ractor/tvar/ractor_tvar.so'
+require 'ractor/tvar.so'
 
 class Ractor
   class TVar

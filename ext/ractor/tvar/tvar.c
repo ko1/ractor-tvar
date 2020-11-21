@@ -749,7 +749,7 @@ tx_atomically(VALUE self)
 }
 
 void
-Init_ractor_tvar(void)
+Init_tvar(void)
 {
     // initialixe tx_global
     struct tx_global *txg = tx_global_ptr();

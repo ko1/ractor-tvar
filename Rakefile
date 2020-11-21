@@ -10,8 +10,8 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-Rake::ExtensionTask.new "ractor_tvar" do |ext|
-  ext.lib_dir = "lib/ractor/tvar"
+Rake::ExtensionTask.new "ractor/tvar" do |ext|
+
 end
 
 task :test => :compile
