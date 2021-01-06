@@ -751,6 +751,8 @@ tx_atomically(VALUE self)
 void
 Init_tvar(void)
 {
+    rb_ext_ractor_safe(true);
+
     // initialixe tx_global
     struct tx_global *txg = tx_global_ptr();
     txg->slot_index = 0;
