@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler/gem_tasks"   # build / install / release
 require "rake/testtask"
 
 Rake::TestTask.new(:test) do |t|
